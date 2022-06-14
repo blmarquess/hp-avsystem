@@ -9,21 +9,17 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@emotion/cache": "^11.9.3",
-    "@emotion/react": "^11.9.3",
-    "@emotion/server": "^11.4.0",
-    "@emotion/styled": "^11.9.3",
+    "@emotion/react": "^11.9.0",
+    "@emotion/styled": "^11.8.1",
     "@fontsource/roboto": "^4.5.7",
     "@mui/icons-material": "^5.8.3",
     "@mui/material": "^5.8.3",
-    "@mui/styled-engine": "npm:@mui/styled-engine-sc@latest",
+    "@mui/styled-engine-sc": "^5.8.0",
     "next": "12.1.6",
     "react": "18.1.0",
     "react-dom": "18.1.0",
+    "sharp": "^0.30.6",
     "styled-components": "^5.3.5"
-  },
-  "resolutions": {
-    "@mui/styled-engine": "npm:@mui/styled-engine-sc@latest"
   },
   "devDependencies": {
     "@next/eslint-plugin-next": "^12.1.6",

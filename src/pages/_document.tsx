@@ -1,17 +1,52 @@
-import * as React from 'react'
-import Document, { Html, Head, Main, NextScript } from 'next/document'
-import createEmotionServer from '@emotion/server/create-instance'
-
-import createEmotionCache from '../utils/createEmotionCache'
+import React from 'react'
+import Document, {
+  DocumentInitialProps,
+  DocumentContext,
+  Html,
+  Head,
+  Main,
+  NextScript
+} from 'next/document'
+import { ServerStyleSheet } from 'styled-components'
 
 export default class MyDocument extends Document {
-  render () {
+  static async getInitialProps (
+    ctx: DocumentContext
+  ): Promise<DocumentInitialProps> {
+    const sheet = new ServerStyleSheet()
+    const originalRenderPage = ctx.renderPage
+
+    try {
+      ctx.renderPage = () =>
+        originalRenderPage({
+          enhanceApp: App => props => sheet.collectStyles(<App {...props} />)
+        })
+
+      const initialProps = await Document.getInitialProps(ctx)
+      return {
+        ...initialProps,
+        styles: [
+          <React.Fragment key="w1s">
+            {initialProps.styles}
+            {sheet.getStyleElement()}
+          </React.Fragment>
+        ]
+      }
+    } finally {
+      sheet.seal()
+    }
+  }
+
+  // eslint-disable-next-line no-undef
+  render (): JSX.Element {
     return (
-      <Html lang="en">
+      <Html lang="pt">
         <Head>
+          <meta charSet="utf-8" />
+
           <link
+            href="https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=optional"
             rel="stylesheet"
-            href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
           />
         </Head>
         <body>
@@ -20,40 +55,5 @@ export default class MyDocument extends Document {
         </body>
       </Html>
     )
-  }
-}
-
-MyDocument.getInitialProps = async (ctx) => {
-  const originalRenderPage = ctx.renderPage
-
-  const cache = createEmotionCache()
-  const { extractCriticalToChunks } = createEmotionServer(cache)
-
-  ctx.renderPage = () =>
-    originalRenderPage({
-      // eslint-disable-next-line react/display-name
-      enhanceApp: (App: any) => (props) =>
-        <App emotionCache={cache} {...props} />
-    })
-
-  const initialProps = await Document.getInitialProps(ctx)
-
-  const emotionStyles = extractCriticalToChunks(initialProps.html)
-  const emotionStyleTags = emotionStyles.styles.map((style) => (
-    <style
-      data-emotion={`${style.key} ${style.ids.join(' ')}`}
-      key={style.key}
-
-      dangerouslySetInnerHTML={{ __html: style.css }}
-    />
-  ))
-
-  return {
-    ...initialProps,
-
-    styles: [
-      ...React.Children.toArray(initialProps.styles),
-      ...emotionStyleTags
-    ]
   }
 }
