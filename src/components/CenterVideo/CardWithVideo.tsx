@@ -3,15 +3,18 @@ import React from 'react'
 
 export default function CardWithVideo () {
   return (
-        <Card sx={{ display: 'flex', justifyContent: 'space-between', width: '50%' }}>
+        <Card sx={{ display: 'flex', justifyContent: 'space-between', width: 650, height: 200 }}>
           <Box sx={{ display: 'flex', flexDirection: 'column' }}>
-            <CardContent sx={{ flex: '1 0 auto' }}>
+            <CardContent sx={{ flex: '1 0 auto', p: 2 }}>
               <Typography component="div" variant="h6">
                 +100 EMPRESAS
               </Typography>
-              <Typography variant="h6" color="text.secondary" component="div">
+              <Typography variant="h6" component="div">
                 +1500 PROJETOS
-              </Typography>
+          </Typography>
+          <Typography sx={{ fontSize: 14, fonteWeight: 400 }} component="div">
+            AV-GEO é um software de gerenciamento de projetos compostos por banco de dados desenvolvido exclusivamente pela AVSystemGeo Tecnologia da Informação Ltda.
+          </Typography>
             </CardContent>
             <Box sx={{ display: 'flex', alignItems: 'center', pl: 1, pb: 1 }}>
 
@@ -37,13 +40,13 @@ export default function CardWithVideo () {
               }
             }}
             image="/images/icons/playing.png"
-            alt="Live from space album cover"
+            alt="Video Institucional - Play?"
         />
           <CardMedia
             component="img"
             sx={{ width: 300, height: 200 }}
             image="/images/empresas-exemple.png"
-            alt="Live from space album cover"
+            alt="Video Institucional - Play?"
         />
       </Box>
 
