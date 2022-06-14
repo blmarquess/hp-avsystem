@@ -8,6 +8,7 @@ import Onfocus from '@components/Onfocus/Onfocus'
 import CardWithVideo from '@components/CenterVideo/CardWithVideo'
 import ServicosBlock from '@components/Servicos/ServicosBlock'
 import GraphicPizza from '@components/graphicPizza/GraphicPizza'
+import ImageBGEletrica from '@components/base/ImageBGEletrica'
 
 const Home: NextPage = () => {
   return (
@@ -21,6 +22,7 @@ const Home: NextPage = () => {
         </Box>
         <ServicosBlock />
         <GraphicPizza />
+        <ImageBGEletrica />
       </Container>
     </>
   )
