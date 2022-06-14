@@ -7,6 +7,7 @@ import Header from '@components/header/Header'
 import Onfocus from '@components/Onfocus/Onfocus'
 import CardWithVideo from '@components/CenterVideo/CardWithVideo'
 import ServicosBlock from '@components/Servicos/ServicosBlock'
+import GraphicPizza from '@components/graphicPizza/GraphicPizza'
 
 const Home: NextPage = () => {
   return (
@@ -19,6 +20,7 @@ const Home: NextPage = () => {
           <CardWithVideo />
         </Box>
         <ServicosBlock />
+        <GraphicPizza />
       </Container>
     </>
   )

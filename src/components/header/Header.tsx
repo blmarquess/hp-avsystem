@@ -1,7 +1,7 @@
 import { Box, Grid } from '@mui/material'
 import Image from 'next/image'
 import React from 'react'
-import SimpleLinks from '../Assets/SimpleLinks'
+import SimpleLinks from '../base/SimpleLinks'
 
 export default function Header () {
   return (
