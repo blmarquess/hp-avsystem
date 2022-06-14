@@ -17,27 +17,35 @@ export default function CardWithVideo () {
 
           </Box>
       </Box>
+      <Box sx={{ position: 'relative', width: 300, height: 200 }}>
       <CardMedia
             component="img"
             sx={{
-              width: 300,
-              height: 200,
+              width: 100,
+              height: 100,
+              borderRadius: '50%',
               position: 'absolute',
-              top: '0',
-              left: '30%',
-              backgroundColor: '#fff',
+              top: '25%',
+              left: '35%',
               opacity: 0,
-              ':hover': { opacity: 0.9, image: '/images/icons/playing.png' }
+              transition: 'linear 0.2s',
+              ':hover': {
+                opacity: 0.70,
+                transition: 'linear 0.2s',
+                zIndex: 100,
+                cursor: 'pointer'
+              }
             }}
-            image="/images/icons/playing-icon.png"
+            image="/images/icons/playing.png"
             alt="Live from space album cover"
         />
           <CardMedia
             component="img"
-            sx={{ width: 300, height: 200, ':hover': { opacity: 0.5 } }}
+            sx={{ width: 300, height: 200 }}
             image="/images/empresas-exemple.png"
             alt="Live from space album cover"
         />
+      </Box>
 
       </Card>
   )

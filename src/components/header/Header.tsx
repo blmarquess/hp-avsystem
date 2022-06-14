@@ -1,6 +1,5 @@
 import { Box, Grid } from '@mui/material'
 import Image from 'next/image'
-// import  from 'next/link'
 import React from 'react'
 import SimpleLinks from '../Assets/SimpleLinks'
 
