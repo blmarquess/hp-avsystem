@@ -66,3 +66,61 @@ export const IMAGES_CLIENTES = [
   { id: '136', imageUrl: '/images/clientes/clientes14_1.png' },
   { id: '137', imageUrl: '/images/clientes/clientes15_1.png' }
 ]
+
+export type Historic = {
+  label: string;
+  date: number;
+  description: string;
+}
+
+export const DATA_HISTORY = [
+  {
+    label: 'Select campaign settings',
+    date: 2010,
+    description: `For each ad campaign that you create, you can control how much
+              you're willing to spend on clicks and conversions, which networks
+              and geographical locations you want your ads to show on, and more.`
+  },
+  {
+    label: 'Create an ad group',
+    date: 2011,
+    description:
+      'An ad group contains one or more ads which target a shared set of keywords.'
+  },
+  {
+    label: 'Create an ad',
+    date: 2012,
+    description: `Try out different ad text to see what brings in the most customers,
+              and learn how to enhance your ads using features like ad extensions.
+              If you run into any problems with your ads, find out how to tell if
+              they're running and how to resolve approval issues.`
+  },
+  {
+    label: 'Create an ad group',
+    date: 2013,
+    description:
+      'An ad group contains one or more ads which target a shared set of keywords.'
+  },
+  {
+    label: 'Create an ad',
+    date: 2014,
+    description: `Try out different ad text to see what brings in the most customers,
+              and learn how to enhance your ads using features like ad extensions.
+              If you run into any problems with your ads, find out how to tell if
+              they're running and how to resolve approval issues.`
+  },
+  {
+    label: 'Create an ad group',
+    date: 2015,
+    description:
+      'An ad group contains one or more ads which target a shared set of keywords.'
+  },
+  {
+    label: 'Create an ad',
+    date: 2016,
+    description: `Try out different ad text to see what brings in the most customers,
+              and learn how to enhance your ads using features like ad extensions.
+              If you run into any problems with your ads, find out how to tell if
+              they're running and how to resolve approval issues.`
+  }
+]
