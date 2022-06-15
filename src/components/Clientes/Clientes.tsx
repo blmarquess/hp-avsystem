@@ -1,9 +1,9 @@
 /* eslint-disable @next/next/no-img-element */
 import React from 'react'
 import { Box, ImageListItem, Typography } from '@mui/material'
-import { IMAGES_CLIENTES, ClienteImgType } from '../../mocks/servicos'
+import { ClienteImgType } from '../../mocks/servicos'
 
-export default function Clientes () {
+export default function Clientes (props: { clientes: ClienteImgType[] }) {
   return (
     <Box sx={{ display: 'flex', flexDirection: 'column', mt: 4, justifyContent: 'center' }}>
       <Box sx={{ display: 'flex', justifyContent: 'center' }}>
@@ -16,7 +16,7 @@ export default function Clientes () {
       </Box>
 
       <Box sx={{ display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap', mt: 4, height: 500 }} component="div">
-        {IMAGES_CLIENTES.map((cli: ClienteImgType) => (
+        {props.clientes?.map((cli: ClienteImgType) => (
             <ImageListItem key={cli.id} sx={{ width: 250, height: 150 }}>
               <img src={`${cli.imageUrl}?w=164&h=164&fit=crop&auto=format`} alt={cli.imageUrl} />
             </ImageListItem>

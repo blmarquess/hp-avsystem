@@ -1,5 +1,6 @@
 import React from 'react'
-import type { NextPage } from 'next'
+import { GetStaticProps } from 'next'
+
 import { Box, Container } from '@mui/material'
 
 import MetaData from '@components/metaDatas/metas'
@@ -13,7 +14,15 @@ import Clientes from '@components/Clientes/Clientes'
 import Footer from '@components/Footer/Footer'
 import LineHistoric from '@components/Historic/LineHistoric'
 
-const Home: NextPage = () => {
+import { Historic, ClienteImgType, ServiceType } from '@data/servicos'
+
+type IProps = {
+  historic: Historic[];
+  clientes: ClienteImgType[];
+  servicos: ServiceType[];
+}
+
+const Home = (props: IProps) => {
   return (
     <>
       <MetaData />
@@ -23,11 +32,11 @@ const Home: NextPage = () => {
         <Box sx={{ display: 'flex', justifyContent: 'center', width: '100%', mt: 2 }}>
           <CardWithVideo />
         </Box>
-        <ServicosBlock />
+        <ServicosBlock servicos={ props.servicos } />
         <GraphicPizza />
         <ImageBGEletrica />
-        <LineHistoric />
-        <Clientes />
+        <LineHistoric historic={ props.historic } />
+        <Clientes clientes={ props.clientes } />
         <Footer />
       </Container>
     </>
@@ -35,3 +44,11 @@ const Home: NextPage = () => {
 }
 
 export default Home
+
+export const getStaticProps: GetStaticProps = async () => {
+  const API_URI = process.env.PUBLIC_NEXT_APP_API_URI || 'http://localhost:3000/api'
+  const historic: Historic[] = await fetch(`${API_URI}/historic`).then(res => res.json())
+  const clientes: ClienteImgType[] = await fetch(`${API_URI}/clientes`).then(res => res.json())
+  const servicos: ServiceType[] = await fetch(`${API_URI}/servicos`).then(res => res.json())
+  return { props: { historic, clientes, servicos } }
+}

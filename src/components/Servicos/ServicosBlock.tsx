@@ -1,9 +1,9 @@
 import React from 'react'
 import { Box, Typography, Grid } from '@mui/material'
-import { MOCK_SERVICOS, ServiceType } from '../../mocks/servicos'
+import { ServiceType } from '../../mocks/servicos'
 import ServicosCard from './ServicosCard'
 
-export default function ServicosBlock () {
+export default function ServicosBlock (props: { servicos: ServiceType[] }) {
   return (
     <Box sx={{ display: 'flex', flexDirection: 'column', mt: 4, justifyContent: 'center' }}>
       <Box sx={{ display: 'flex', justifyContent: 'center' }}>
@@ -16,7 +16,7 @@ export default function ServicosBlock () {
       </Box>
 
       <Grid sx={{ my: 6, columns: 3, direction: 'row' }} >
-        {MOCK_SERVICOS.map((service: ServiceType) => (
+        {props.servicos?.map((service: ServiceType) => (
           <Grid item key={service.id} sx={{ height: 100, my: 2 }}>
             <ServicosCard {...service} />
           </Grid>

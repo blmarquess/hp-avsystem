@@ -3,12 +3,11 @@ import Stepper from '@mui/material/Stepper'
 import Step from '@mui/material/Step'
 import StepLabel from '@mui/material/StepLabel'
 import Typography from '@mui/material/Typography'
-import { DATA_HISTORY, Historic } from '../../mocks/servicos'
+import { Historic } from '../../mocks/servicos'
 import { Button, Card, CardContent } from '@mui/material'
 
-export default function LineHistoric () {
+export default function LineHistoric (props: { historic: Historic[] }) {
   const [activeStep, setActiveStep] = React.useState(0)
-
   const handleNext = () => {
     setActiveStep((prevActiveStep) => prevActiveStep + 1)
   }
@@ -29,10 +28,10 @@ export default function LineHistoric () {
         {'<'}
       </Button>
       <Stepper activeStep={activeStep} alternativeLabel >
-        {DATA_HISTORY.map((step: Historic, index: number) => (
-          <Step key={step.label} onClick={() => handleSelect(index)}>
+        {props.historic?.map((step: Historic, index: number) => (
+          <Step key={step.date} onClick={() => handleSelect(index)}>
             <StepLabel>
-              {step.label}
+              {step.date}
             </StepLabel>
 
             <CardContent>
@@ -42,7 +41,7 @@ export default function LineHistoric () {
           </Step>
         ))}
       </Stepper>
-      <Button onClick={handleNext} disabled={activeStep === DATA_HISTORY.length - 1 ?? true}> {'>'} </Button>
+      <Button onClick={handleNext} disabled={activeStep === props.historic?.length - 1 ?? true}> {'>'} </Button>
     </Card>
   )
 }
