@@ -9,6 +9,8 @@ import CardWithVideo from '@components/CenterVideo/CardWithVideo'
 import ServicosBlock from '@components/Servicos/ServicosBlock'
 import GraphicPizza from '@components/graphicPizza/GraphicPizza'
 import ImageBGEletrica from '@components/base/ImageBGEletrica'
+import Clientes from '@components/Clientes/Clientes'
+import Footer from '@components/Footer/Footer'
 
 const Home: NextPage = () => {
   return (
@@ -23,6 +25,9 @@ const Home: NextPage = () => {
         <ServicosBlock />
         <GraphicPizza />
         <ImageBGEletrica />
+
+        <Clientes />
+        <Footer />
       </Container>
     </>
   )
