@@ -43,3 +43,26 @@ export type ServiceType = {
     description: string;
     imageUrl: string;
 }
+
+export type ClienteImgType = {
+  id: number | string;
+  imageUrl: string;
+}
+
+export const IMAGES_CLIENTES = [
+  { id: '123', imageUrl: '/images/clientes/clientes01_1.png' },
+  { id: '124', imageUrl: '/images/clientes/clientes02_1.png' },
+  { id: '125', imageUrl: '/images/clientes/clientes03_1.png' },
+  { id: '126', imageUrl: '/images/clientes/clientes04_1.png' },
+  { id: '127', imageUrl: '/images/clientes/clientes05_1.png' },
+  { id: '128', imageUrl: '/images/clientes/clientes06_1.png' },
+  { id: '129', imageUrl: '/images/clientes/clientes07_1.png' },
+  { id: '130', imageUrl: '/images/clientes/clientes08_1.png' },
+  { id: '131', imageUrl: '/images/clientes/clientes09_1.png' },
+  { id: '132', imageUrl: '/images/clientes/clientes10_1.png' },
+  { id: '133', imageUrl: '/images/clientes/clientes11_1.png' },
+  { id: '134', imageUrl: '/images/clientes/clientes12_1.png' },
+  { id: '135', imageUrl: '/images/clientes/clientes13_1.png' },
+  { id: '136', imageUrl: '/images/clientes/clientes14_1.png' },
+  { id: '137', imageUrl: '/images/clientes/clientes15_1.png' }
+]
