@@ -1,1 +1,5 @@
->backgroud color page rgb(232,235,244)
+<div align='center'>
+		
+[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/N4N2DC6XA)
+		
+</div>
